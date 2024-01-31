@@ -6,6 +6,8 @@ Created on Mon Jan 29 22:15:21 2024
 @author: paul
 """
 
+# import sys
+# sys.path.append('/Users/paul/Documents/08 - Hertie/starter-health-model_STF/utils')
 
 from repo_info import get_repo_info, fork_archive, get_org_repos
 from augur_connect import augur_db_connect
@@ -27,3 +29,4 @@ print(repo_info)
 org_repos = get_org_repos(org_name, engine)
 
 print(org_repos)
+
