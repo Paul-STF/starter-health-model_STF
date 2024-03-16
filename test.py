@@ -13,6 +13,7 @@ from utils.repo_info import get_repo_info, fork_archive, get_org_repos
 from utils.augur_connect import augur_db_connect
 from metrics.closure_ratio import monthly_prs_closed
 from metrics.release_frequency import get_release_data
+from metrics.release_frequency import activity_release_graph
 
 engine = augur_db_connect("config.json")
 
@@ -21,7 +22,8 @@ repo_org = 'sequoia-pgp'
 org_name  = 'sequoia-pgp'
 repo_name = 'fast-forward'
 repo_id =  '150824' 
-
+start_date = '2020-01-01'
+end_date =  '2024-01-01'
 
 # Function & call
 repo_info = get_repo_info(engine, repo_org, repo_name)
@@ -48,4 +50,6 @@ os.chdir(target_directory)
 # check the augur documentation
 
 
-get_release_data(repo_id, start_date, end_date, engine):
+print(get_release_data(repo_id, start_date, end_date, engine))
+
+activity_release_graph(repo_id, repo_name, org_name, start_date, end_date, engine, years)
