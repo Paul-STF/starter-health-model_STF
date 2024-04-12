@@ -22,6 +22,7 @@ from utils.augur_connect import augur_db_connect
 from metrics.closure_ratio import monthly_prs_closed
 from metrics.release_frequency import get_release_data
 from metrics.release_frequency import activity_release_graph
+from metrics.metrics.release_frequency import activity_release_graph
 
 engine = augur_db_connect("config.json")
 
@@ -33,15 +34,26 @@ repo_id =  '150824'
 start_date = '2020-01-01'
 end_date =  '2024-01-01'
 
-# Function & call
+# repo_info Function & call
 repo_info = get_repo_info(engine, repo_org, repo_name)
 
 print(repo_info)
 
-# Function & call
+# org_repos Function & call
 org_repos = get_org_repos(org_name, engine)
 
 print(org_repos)
+
+# TESTING RELEASE FREQUENCY FUNCTIONS
+
+# get_release_data Function & call
+# arguments: repo_id, start_date, end_date, engine
+release_data = get_release_data(repo_id, start_date, end_date, engine)
+
+
+# activity_release_data Function & call
+# arguments: repo_id, repo_name, org_name, start_date, end_date, engine
+org_repos = activity_release_graph(org_name, engine)
 
 
 
@@ -61,19 +73,10 @@ for org_name in org_names:
 
 
 
-### Sorting working directory
 
-import os
-print(os.getcwd())
-# Define the target directory
-target_directory = "/Users/paulsharratt/Documents/Hertie/Semester 4/03 - Master's Thesis/starter-health-model_STF/"
-
-# Change the current working directory
-os.chdir(target_directory)
-
-# check the augur documentation
 
 
 # this doesn't work yet: print(get_release_data(repo_id, start_date, end_date, engine))
 
 # this doesn't work yet: activity_release_graph(repo_id, repo_name, org_name, start_date, end_date, engine, years)
+
