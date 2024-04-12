@@ -17,18 +17,17 @@ os.chdir(target_directory)
 # Verify the change
 print(f"Current working directory: {os.getcwd()}")
 
-from utils.repo_info import get_repo_info, fork_archive, get_org_repos
+from utils.repo_info import get_repo_info, get_org_repos
 from utils.augur_connect import augur_db_connect
-from metrics.closure_ratio import monthly_prs_closed
 from metrics.release_frequency import get_release_data
 from metrics.release_frequency import activity_release_graph
-from metrics.metrics.release_frequency import activity_release_graph
+
 
 engine = augur_db_connect("config.json")
 
 # Replace with actual values
 repo_org = 'sequoia-pgp'
-org_name  = 'gstreamer'
+org_name  = 'fortran-lang'
 repo_name = 'fast-forward'
 repo_id =  '150824' 
 start_date = '2020-01-01'
